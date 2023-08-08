@@ -4,9 +4,6 @@ const {Client, GatewayIntentBits} = require('discord.js');
 
 const fs = require('fs');
 
-const target_channel_id = "1138104307489714348";
-const target_role_id = "1138468318764875917";
-
 const discord_client = new Client({intents: 
     [
         GatewayIntentBits.Guilds,
@@ -33,7 +30,7 @@ discord_client.on('ready', async () => {
 
 discord_client.on('messageCreate', async (msg) => {
     
-    if (msg.author.bot || msg.channel.id != target_channel_id) {
+    if (msg.author.bot || msg.channel.id != app_settings.target_channel_id) {
         return;
     }
     if (!msg.content.includes('https://vrchat.com/home/user/usr_')) {
