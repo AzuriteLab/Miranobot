@@ -21,11 +21,11 @@ if (!fs.existsSync("./app_settings.json", "utf8")) {
         "target_role_id":"",
         "target_channel_id":""
     };
-    fs.writeFileSync("./app_settings.json", JSON.stringify(default_app_settings_structure));
+    fs.writeFileSync(`${__dirname}/app_settings.json`, JSON.stringify(default_app_settings_structure));
     console.log("need to edit app_settings.json and add the token.");
     return;
 }
-const app_settings = JSON.parse(fs.readFileSync("./app_settings.json", "utf8"));
+const app_settings = JSON.parse(fs.readFileSync(`${__dirname}/app_settings.json`, "utf8"));
 
 discord_client.on('ready', async () => {
     console.log(`Logged in as ${discord_client.user.tag}!`);
