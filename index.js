@@ -15,7 +15,7 @@ const discord_client = new Client({intents:
         GatewayIntentBits.MessageContent,
     ]
 });
-if (!fs.existsSync("./app_settings.json", "utf8")) {
+if (!fs.existsSync(`${__dirname}/app_settings.json`, "utf8")) {
     const default_app_settings_structure = {
         "discord_token": "",
         "target_role_id":"",
